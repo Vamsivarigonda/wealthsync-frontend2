@@ -26,7 +26,7 @@ function App() {
     const fetchCities = async () => {
       try {
         const response = await requestWithRetry(
-          () => axios.get('https://wealthsync-backend.onrender.com/api/cities', { timeout: 30000 }),
+          () => axios.get('https://wealthsync-backend2.onrender.com/api/cities', { timeout: 30000 }),
           5, // 5 retries
           10000 // 10 seconds delay between retries
         );
@@ -62,7 +62,7 @@ function App() {
     setLoading(true);
     try {
       const response = await requestWithRetry(() =>
-        axios.post('https://wealthsync-backend.onrender.com/api/budget', {
+        axios.post('https://wealthsync-backend2.onrender.com/api/budget', {
           email,
           income,
           expenses: totalExpenses,
@@ -89,7 +89,7 @@ function App() {
   const fetchHistory = async () => {
     try {
       const response = await requestWithRetry(() =>
-        axios.post('https://wealthsync-backend.onrender.com/api/budget/history', {
+        axios.post('https://wealthsync-backend2.onrender.com/api/budget/history', {
           email
         }, { timeout: 30000 })
       );
